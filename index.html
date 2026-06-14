@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Delfina 15 años</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.png">
+
+    <meta name="description" content="Tarjeta de cumpleaños personalizada de 15 años para Delfi.">
+    <meta property="fb:admins" content="vbesnati@gmail.com" />
+    <meta property="og:title" content="¡Mis 15 Años! | Delfina Burga" />
+    <meta property="og:type" content="tarjeta de cumpleaños" />
+    <meta property="og:url" content="https://htmlcheatsheet.com/" />
+    <meta property="og:image" content="img/og-image.jpg" />
+    <meta property="og:description"
+        content="Te invito a mi cumpleaños de 15. ¡Hacé clic acá para ver toda la info de mi fiesta!" />
+
+    <link rel="stylesheet" href="estilo.css">
+
+</head>
+
+<body>
+    <div class="contenido">
+        <header>
+            <h2>DELFINA</h2>
+            <div class="logo-mis-15">
+                <span class="m">M</span>
+                <span class="i">I</span>
+                <span class="s">S</span>
+                <span class="uno">1</span>
+                <span class="cinco">5</span>
+            </div>
+
+            <h3 class="frase-vertical">Una noche para recordar siempre</h3>
+        </header>
+
+        <div class="music-player">
+            <button id="playBtn">
+                ▶
+            </button>
+
+            <audio id="miCancion" loop>
+                <source src="audio/backtofriends.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+        <section>
+            <h4>Detalles del evento</h4>
+            <p class="evento">Sabado <strong>8 de Agosto</strong> de</p>
+            <p><strong class="time">21:00</strong> a <strong class="time">05:00</strong></p>
+            <a
+                href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NjBnOGRibnV2djRoa24wMm1sMnJzZ29zZHEgbWF2aWJlc25hdGkwN0Bt&tmsrc=mavibesnati07%40gmail.com">Agendalo</a>
+        </section>
+        <section>
+            <h4>Ubicación</h4>
+
+            <p><strong>Espai Eventos</strong> Cno. Gral. Belgrano y C. 482 5017</p>
+            <div class="mapa">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3272.8907461737467!2d-58.0416016!3d-34.8840897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2ddd07ea1184b%3A0x288a4da80e1c809f!2sEspai%20Eventos!5e0!3m2!1ses-419!2sar!4v1781397532926!5m2!1ses-419!2sar"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+        <section>
+            <h4>Dresscode</h4>
+            <p><strong>Elegante Sport.</strong> Evitar los colores claros</p>
+        </section>
+        <section>
+            <h4>Falta muy poco...</h4>
+
+            <div id="countdown">
+
+                <div class="time-box">
+                    <span id="dias">00</span>
+                    <p>Días</p>
+                </div>
+
+                <span class="separador">:</span>
+
+                <div class="time-box">
+                    <span id="horas">00</span>
+                    <p>Horas</p>
+                </div>
+
+                <span class="separador">:</span>
+
+                <div class="time-box">
+                    <span id="minutos">00</span>
+                    <p>Minutos</p>
+                </div>
+
+                <span class="separador">:</span>
+
+                <div class="time-box">
+                    <span id="segundos">00</span>
+                    <p>Seg.</p>
+                </div>
+            </div>
+            <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSf7pbpGzFIZlZb-fAfFoW9K3HhBjj79b4L_0rKMy84RLZW47A/viewform?usp=publish-editor">Confirmar
+                asistencia</a>
+        </section>
+        <section>
+            <h4>Regalo</h4>
+            <p>Para mi el mejor regalo es tu presencia. Pero si aún así querés tener un detalle y no sabés qué
+                regalarme, te
+                dejo mi alias.</p>
+            <p><strong>Alias: Defi.burga</strong></p>
+        </section>
+        <h3>No Faltes!</h3>
+    </div>
+    <footer>
+        <p> </p>
+    </footer>
+
+    <script>
+        const fechaObjetivo = new Date("2026-08-08T21:00:00-03:00").getTime();
+        const boton = document.getElementById("playBtn");
+        const audio = document.getElementById("miCancion");
+        audio.volume = 0.8;
+
+        let reproduciendo = false;
+
+
+        function actualizarCuentaRegresiva() {
+            const ahora = new Date().getTime();
+            const diferencia = fechaObjetivo - ahora;
+
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            document.getElementById("dias").textContent = dias;
+            document.getElementById("horas").textContent = horas;
+            document.getElementById("minutos").textContent = minutos;
+            document.getElementById("segundos").textContent = segundos;
+        }
+
+        actualizarCuentaRegresiva();
+        setInterval(actualizarCuentaRegresiva, 1000);
+
+        boton.addEventListener("click", () => {
+
+            if (!reproduciendo) {
+                audio.play();
+                boton.innerHTML = "❚❚";
+                reproduciendo = true;
+            } else {
+                audio.pause();
+                boton.innerHTML = "▶";
+                reproduciendo = false;
+            }
+        });
+    </script>
+</body>
+
+</html>
